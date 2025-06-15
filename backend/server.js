@@ -11,11 +11,10 @@ dotenv.config(); // Load environment variables from .env file
 
 const app = express(); // Create an instance app of express
 
-app.get("/", (req, res) => {
-  res.send("Hello World!!!"); // Send a response to the client
-}); // Define a route for the root URL
+app.use(express.json()); // Middleware to parse JSON request bodies
 
 app.use("/api/todos", todoRoutes); // Use the todoRoutes for handling requests to /api/todos
+
 app.listen(5000, () => {
   connectDB(); // Call the function to connect to the database
   console.log("Server is running on the port http://localhost:5000");
