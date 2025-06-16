@@ -4,7 +4,6 @@
 
 import dotenv from "dotenv"; // to get access to mongo_uri
 import express from "express";
-import path from "path"; // to handle file paths in a cross-platform way
 import { connectDB } from "./config/db.js";
 import todoRoutes from "./routes/todo.routes.js"; // Import the todo routes for handling requests
 import path from "path";
