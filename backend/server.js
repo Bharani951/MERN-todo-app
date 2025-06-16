@@ -4,8 +4,11 @@
 
 import dotenv from "dotenv"; // to get access to mongo_uri
 import express from "express";
+import path from "path"; // to handle file paths in a cross-platform way
 import { connectDB } from "./config/db.js";
 import todoRoutes from "./routes/todo.routes.js"; // Import the todo routes for handling requests
+import path from "path";
+const PORT = process.env.PORT || 5000; // Set the port to the value from environment variables or default to 5000
 
 dotenv.config(); // Load environment variables from .env file
 
@@ -24,7 +27,7 @@ if (process.env.NODE_ENV === "production") {
   });
 }
 
-app.listen(5000, () => {
+app.listen(PORT, () => {
   connectDB(); // Call the function to connect to the database
   console.log("Server is running on the port http://localhost:5000");
 }); // listen and Start the server on port 5000
